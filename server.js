@@ -35,17 +35,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // fetch all users function from usersController.js
-app.get("/", fetchUsers);
+app.get("/api/users", fetchUsers);
 
 // fetch number of albums per user by id
-app.get("/albums/:id", fetchAlbumsPerUser);
+app.get("/api/albums/:id", fetchAlbumsPerUser);
 
 
 
 // // get index page in views folder
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "views", "index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
 
 
 
