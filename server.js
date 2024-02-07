@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const fetchUsers = require("./controllers/usersController");
 const fetchAlbumsPerUser = require("./controllers/albumsController");
+const fetchPhotos = require("./controllers/photosController");
 
 const port = process.env.PORT || 3500;
 
@@ -39,6 +40,9 @@ app.get("/api/users", fetchUsers);
 
 // fetch number of albums per user by id
 app.get("/api/albums/:id", fetchAlbumsPerUser);
+
+// fetch photos
+app.get("/api/photos", fetchPhotos);
 
 
 
