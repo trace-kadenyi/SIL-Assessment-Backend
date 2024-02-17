@@ -20,7 +20,7 @@ const port = process.env.PORT || 3500;
 // cors
 app.use(
   cors({
-    origin: "https://sil-assessment-backend.vercel.app/",
+    origin: "https://sil-assessment-backend.vercel.app",
   })
 );
 
