@@ -1,3 +1,18 @@
+// fetch all albums in the DB
+const fetchAllAlbums = async (req, res) => {
+  try {
+    // fetch albums
+    const response = await fetch("https://jsonplaceholder.typicode.com/albums");
+    const albums = await response.json();
+    // send response
+    res.json(albums);
+  } catch (error) {
+    // catch errors
+    console.log(error);
+  }
+};
+
+// fetch albums per user
 const fetchAlbumsPerUser = async (req, res) => {
   try {
     // get id from params
@@ -22,4 +37,8 @@ const fetchAlbumsPerUser = async (req, res) => {
   }
 };
 
-module.exports = fetchAlbumsPerUser;
+// export functions
+module.exports = {
+  fetchAllAlbums,
+  fetchAlbumsPerUser,
+};
