@@ -12,4 +12,5 @@ const fetchAllUsers = async (req, res) => {
   }
 };
 
+// export function
 module.exports = fetchAllUsers;
