@@ -5,7 +5,10 @@ const path = require("path");
 
 // import controllers
 const fetchUsers = require("./controllers/usersController");
-const {fetchPhotosPerAlbum, updatePhoto} = require("./controllers/photosController");
+const {
+  fetchPhotosPerAlbum,
+  updatePhoto,
+} = require("./controllers/photosController");
 const {
   fetchAllAlbums,
   fetchAlbumsPerUser,
@@ -15,7 +18,11 @@ const {
 const port = process.env.PORT || 3500;
 
 // cors
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://sil-assessment-backend.vercel.app/",
+  })
+);
 
 // url encoded and json
 app.use(express.urlencoded({ extended: false }));
