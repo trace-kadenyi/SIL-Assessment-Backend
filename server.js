@@ -3,11 +3,13 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 const fetchUsers = require("./controllers/usersController");
-const fetchAlbumsPerUser = require("./controllers/albumsController");
 const fetchPhotos = require("./controllers/photosController");
+const {
+  fetchAllAlbums,
+  fetchAlbumsPerUser,
+} = require("./controllers/albumsController");
 
 const port = process.env.PORT || 3500;
-
 
 // cors
 // const whiteList = [
@@ -38,27 +40,24 @@ app.use(express.json());
 // fetch all users function from usersController.js
 app.get("/api/users", fetchUsers);
 
-// fetch number of albums per user by id
+// fetch all albums
+app.get("/api/albums", fetchAllAlbums);
+
+// fetch albums per user
 app.get("/api/albums/:id", fetchAlbumsPerUser);
 
 // fetch photos
 app.get("/api/photos", fetchPhotos);
-
-
 
 // // get index page in views folder
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-
-
 // get 404 page in views folder
 app.get("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
-
-
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
