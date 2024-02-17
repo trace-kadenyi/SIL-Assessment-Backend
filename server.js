@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 const fetchUsers = require("./controllers/usersController");
-const fetchPhotos = require("./controllers/photosController");
+const {fetchPhotosPerAlbum, updatePhoto} = require("./controllers/photosController");
 const {
   fetchAllAlbums,
   fetchAlbumsPerUser,
@@ -46,8 +46,11 @@ app.get("/api/albums", fetchAllAlbums);
 // fetch albums per user
 app.get("/api/albums/:id", fetchAlbumsPerUser);
 
-// fetch photos
-app.get("/api/photos", fetchPhotos);
+// fetch photos per album
+app.get("/api/photos/:id", fetchPhotosPerAlbum);
+
+// update photo
+app.put("/api/photos/:id", updatePhoto);
 
 // // get index page in views folder
 app.get("/", (req, res) => {
