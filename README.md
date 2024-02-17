@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live Demo Link](sil-assessment-backend.vercel.app)
+[Live Demo Link](https://sil-assessment-backend.vercel.app/)
 
 ## Getting started
 
